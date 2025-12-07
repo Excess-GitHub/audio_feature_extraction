@@ -2,8 +2,6 @@
 
 A complete Python pipeline for extracting **clinician-interpretable audio features** from the Pitt Corpus dataset for Alzheimer's disease detection.
 
-Based on the cross-linguistic study's proven implementation (`Timing_VAD.py`).
-
 ## Features
 
 This pipeline extracts **36+ acoustic features** organized into three categories:
@@ -243,43 +241,4 @@ pytest tests/ --cov=. --cov-report=html
 | pause_dur_mean | 0.5-2.0s | 0.2-0.8s |
 | f0_range | 30-80 Hz | 60-150 Hz |
 | hnr_mean | 5-15 dB | 12-25 dB |
-
-## References
-
-- Based on: Cross-linguistic AD detection study (Timing_VAD.py by Tomas & Paula, 2021)
-- Pitt Corpus: DementiaBank, DOI: 10.21415/CQCW-1F92
-- Cookie Theft picture description task
-
-## License
-
-For research use with proper attribution to the Pitt Corpus and original authors.
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"Parselmouth not available"**
-   ```bash
-   pip install praat-parselmouth
-   ```
-   Falls back to librosa if unavailable.
-
-2. **"Audio file not found"**
-   - Check corpus path structure matches expected layout
-   - Ensure WAV files exist (not just MP3)
-
-3. **"No voiced frames detected"**
-   - Audio may be too quiet or noisy
-   - Check `f0_min`/`f0_max` settings for speaker's pitch range
-
-4. **Memory issues with large corpus**
-   - Process in batches using `max_files` parameter
-   - Enable multiprocessing in config
-
-## Contributing
-
-Contributions welcome! Please ensure tests pass:
-```bash
-pytest tests/ -v
-```
 
